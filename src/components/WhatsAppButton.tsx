@@ -10,7 +10,7 @@ export function WhatsAppButton() {
     const unidade = unidades[unidadeSlug];
     const phoneNumber = unidade.whatsapp.replace(/\D/g, ""); // Remove caracteres não numéricos
     const message = encodeURIComponent(
-      `Olá! Gostaria de saber mais sobre o Chef Sam - ${unidade.nome}`
+      `Olá! Gostaria de saber se vocês estão abertos hoje e o que tem no cardápio.`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
@@ -43,7 +43,7 @@ export function WhatsAppButton() {
             className="fixed inset-0 bg-black/50 z-40"
             onClick={() => setShowSelector(false)}
           />
-          <div className="fixed bottom-24 right-6 z-50 bg-[#2A2A2A] rounded-lg shadow-2xl p-6 min-w-[280px]">
+          <div className="fixed bottom-24 right-6 z-50 glass-card rounded-2xl shadow-xl p-6 min-w-[280px]">
             <h3 className="text-lg font-bold mb-4 text-white">
               Escolha sua Unidade
             </h3>
@@ -52,7 +52,7 @@ export function WhatsAppButton() {
                 <button
                   key={slug}
                   onClick={() => openWhatsApp(slug as UnidadeSlug)}
-                  className="w-full bg-[#A45C40] hover:bg-[#8B4E35] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 text-left"
+                  className="w-full bg-primary hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-full transition-all duration-200 text-left shadow-lg"
                 >
                   {unidade.nome}
                 </button>
@@ -60,7 +60,7 @@ export function WhatsAppButton() {
             </div>
             <button
               onClick={() => setShowSelector(false)}
-              className="mt-4 w-full text-gray-400 hover:text-white text-sm transition-colors"
+              className="mt-4 w-full text-gray-400 hover:text-white text-sm transition-colors font-medium"
             >
               Cancelar
             </button>
