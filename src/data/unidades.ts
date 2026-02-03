@@ -1,0 +1,20 @@
+// src/data/unidades.ts
+
+export const unidades = {
+    tatuape: {
+      id: "tatuape",
+      nome: "Chef Sam - Tatuapé",
+      endereco: "Rua Cantagalo, 230 - Tatuapé, São Paulo",
+      googleMaps: "https://maps.app.goo.gl/Rm66YRwLWQ3tfEFX8",
+      whatsapp: "+5511970474949", // Apenas números para a API
+    },
+    pinheiros: {
+      id: "pinheiros",
+      nome: "Chef Sam - Pinheiros",
+      endereco: "Rua Mourato Coelho, 1004 - Pinheiros, São Paulo",
+      googleMaps: "https://maps.app.goo.gl/e8i3xgLtgvngAuqf6",
+      whatsapp: "5511970474949",
+    }
+  } as const;
+  
+  export type UnidadeSlug = keyof typeof unidades;

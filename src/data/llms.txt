@@ -1,0 +1,24 @@
+# Contexto do Projeto: Chef Sam - Experiência Africana
+
+Este projeto é um site de alta conversão, mobile-first, para um restaurante camaronês com duas unidades em São Paulo. O foco é a "Experiência de Imersão" e "Pratos Compartilhados".
+
+## Unidades e Dados (Single Source of Truth)
+
+### Unidade Tatuapé
+- Endereço: [Inserir Endereço Aqui], Tatuapé, São Paulo - SP
+- Vibe: Familiar, acolhedora, ideal para almoços de domingo.
+- WhatsApp: [Inserir Link/Número]
+
+### Unidade Pinheiros
+- Endereço: [Inserir Endereço Aqui], Pinheiros, São Paulo - SP
+- Vibe: Urbana, moderna, ideal para jantares e encontros.
+- WhatsApp: [Inserir Link/Número]
+
+## Lógica de Navegação
+1. O usuário deve poder alternar entre as unidades de forma global.
+2. O botão de WhatsApp deve sempre refletir a unidade selecionada.
+3. O menu é o mesmo para ambas, mas a galeria de fotos deve priorizar a unidade ativa.
+
+## Requisitos de Tradução
+- Idioma obrigatório: Português (PT-BR).
+- Termos culturais de Camarões (nomes de pratos) devem ser mantidos no original, mas com descrições apetitosas em português.

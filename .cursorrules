@@ -1,0 +1,17 @@
+{
+  "project_rules": {
+    "language": "Portuguese (PT-BR)",
+    "tone": "Acolhedor, sofisticado e vibrante. Foco em 'Experiência Imersiva'.",
+    "naming_conventions": "Componentes em inglês, mas todo conteúdo de texto (strings) e comentários explicativos em Português.",
+    "design_system": {
+      "colors": {
+        "primary": "Terracota (#A45C40)",
+        "secondary": "Ouro (#D4AF37)",
+        "background": "Carvão Profundo (#1A1A1A)"
+      },
+      "patterns": "Utilizar padrões Ndop (Camarões) como texturas sutis em SVG."
+    },
+    "mobile_first": true,
+    "location_logic": "Gerenciar estado para 'Tatuapé' e 'Pinheiros' para alternar endereços e links de WhatsApp."
+  }
+}
