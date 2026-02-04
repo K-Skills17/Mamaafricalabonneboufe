@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Marquee } from "@/components/Marquee";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 // Lista de imagens para a galeria (excluindo as já usadas em outras páginas)
 const galleryImages = [
@@ -82,6 +83,98 @@ const sizeClasses = {
 };
 
 export default function GaleriaPage() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let lastTime = 0;
+    const scrollSpeed = 0.3; // pixels por frame (ritmo lento a médio)
+
+    // Função para fazer scroll automático
+    const autoScroll = (currentTime: number) => {
+      if (isPaused) {
+        lastTime = currentTime;
+        requestAnimationFrame(autoScroll);
+        return;
+      }
+
+      const deltaTime = currentTime - lastTime;
+      lastTime = currentTime;
+
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      const currentScroll = container.scrollLeft;
+
+      // Se chegou ao fim, volta ao início suavemente
+      if (currentScroll >= maxScroll - 5) {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+        // Aguardar um pouco antes de continuar
+        setTimeout(() => {
+          lastTime = performance.now();
+          requestAnimationFrame(autoScroll);
+        }, 1000);
+      } else {
+        // Scroll contínuo suave
+        container.scrollLeft += scrollSpeed;
+        requestAnimationFrame(autoScroll);
+      }
+    };
+
+    // Iniciar animação
+    lastTime = performance.now();
+    const animationFrameId = requestAnimationFrame(autoScroll);
+
+    // Pausar quando o usuário interagir
+    let userInteracting = false;
+    let resumeTimer: NodeJS.Timeout;
+
+    const pauseScroll = () => {
+      userInteracting = true;
+      setIsPaused(true);
+      clearTimeout(resumeTimer);
+    };
+
+    const resumeScroll = () => {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => {
+        userInteracting = false;
+        setIsPaused(false);
+        lastTime = performance.now();
+      }, 2000); // Retomar após 2 segundos de inatividade
+    };
+
+    const handleMouseEnter = () => pauseScroll();
+    const handleMouseLeave = () => resumeScroll();
+    const handleScroll = () => {
+      pauseScroll();
+      resumeScroll();
+    };
+    const handleTouchStart = () => pauseScroll();
+    const handleTouchEnd = () => resumeScroll();
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+    container.addEventListener("scroll", handleScroll);
+    container.addEventListener("touchstart", handleTouchStart);
+    container.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(resumeTimer);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+      container.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isPaused]);
+
   return (
     <main className="min-h-screen bg-background-dark text-gray-200 pt-16">
       {/* Marquee no topo */}
@@ -125,6 +218,7 @@ export default function GaleriaPage() {
 
         {/* Scrollable Photo Wall */}
         <div
+          ref={scrollContainerRef}
           className="relative overflow-x-auto overflow-y-hidden h-[calc(100vh-200px)] md:h-[calc(100vh-150px)] hide-scrollbar"
           style={{
             scrollBehavior: "smooth",
@@ -209,19 +303,21 @@ export default function GaleriaPage() {
           <motion.div
             className="flex items-center gap-2 text-gray-400 text-sm"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: isPaused ? 0.5 : 1 }}
             transition={{ delay: 1 }}
           >
-            <span className="hidden md:inline">Deslize para ver mais</span>
+            <span className="hidden md:inline">
+              {isPaused ? "Pausado - Passe o mouse para continuar" : "Rolagem automática"}
+            </span>
             <motion.svg
               className="w-5 h-5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              animate={{ x: [0, 10, 0] }}
+              animate={{ x: isPaused ? 0 : [0, 10, 0] }}
               transition={{
                 duration: 1.5,
-                repeat: Infinity,
+                repeat: isPaused ? 0 : Infinity,
                 ease: "easeInOut",
               }}
             >
