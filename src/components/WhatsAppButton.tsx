@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { unidades, type UnidadeSlug } from "@/data/unidades";
 
 export function WhatsAppButton() {
@@ -10,7 +11,7 @@ export function WhatsAppButton() {
     const unidade = unidades[unidadeSlug];
     const phoneNumber = unidade.whatsapp.replace(/\D/g, ""); // Remove caracteres não numéricos
     const message = encodeURIComponent(
-      `Olá! Gostaria de saber se vocês estão abertos hoje e o que tem no cardápio.`
+      `Olá! Vi o site e gostaria de saber mais sobre a experiência na unidade ${unidade.nome}.`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
@@ -37,36 +38,50 @@ export function WhatsAppButton() {
       </button>
 
       {/* Selector Modal */}
-      {showSelector && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/50 z-40"
-            onClick={() => setShowSelector(false)}
-          />
-          <div className="fixed bottom-24 right-6 z-50 glass-card rounded-2xl shadow-xl p-6 min-w-[280px]">
-            <h3 className="text-lg font-bold mb-4 text-white">
-              Escolha sua Unidade
-            </h3>
-            <div className="space-y-3">
-              {Object.entries(unidades).map(([slug, unidade]) => (
-                <button
-                  key={slug}
-                  onClick={() => openWhatsApp(slug as UnidadeSlug)}
-                  className="w-full bg-primary hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-full transition-all duration-200 text-left shadow-lg"
-                >
-                  {unidade.nome}
-                </button>
-              ))}
-            </div>
-            <button
+      <AnimatePresence>
+        {showSelector && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
               onClick={() => setShowSelector(false)}
-              className="mt-4 w-full text-gray-400 hover:text-white text-sm transition-colors font-medium"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed bottom-24 right-6 z-50 bg-white rounded-2xl shadow-2xl p-6 min-w-[300px] max-w-[90vw] border border-gray-100"
             >
-              Cancelar
-            </button>
-          </div>
-        </>
-      )}
+              <h3 className="text-lg md:text-xl font-display font-bold mb-4 text-charcoal">
+                Para qual unidade você deseja falar?
+              </h3>
+              <div className="space-y-3">
+                {Object.entries(unidades).map(([slug, unidade], index) => (
+                  <motion.button
+                    key={slug}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => openWhatsApp(slug as UnidadeSlug)}
+                    className="w-full bg-primary hover:bg-amber-600 text-white font-semibold py-3 px-4 rounded-full transition-all duration-200 text-left shadow-lg hover:shadow-xl hover:scale-105"
+                  >
+                    {unidade.nome}
+                  </motion.button>
+                ))}
+              </div>
+              <button
+                onClick={() => setShowSelector(false)}
+                className="mt-4 w-full text-gray-500 hover:text-charcoal text-sm transition-colors font-medium"
+              >
+                Cancelar
+              </button>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

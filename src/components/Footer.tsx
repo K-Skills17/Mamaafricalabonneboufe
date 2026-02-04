@@ -116,6 +116,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/cardapio"
+                  className="text-sm text-gray-300 hover:text-primary transition-colors"
+                >
+                  Cardápio
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/sobre"
                   className="text-sm text-gray-300 hover:text-primary transition-colors"
                 >
@@ -130,12 +138,20 @@ export function Footer() {
                   Galeria
                 </Link>
               </li>
-              <li>
+              <li className="pt-2 border-t border-primary/20">
                 <Link
-                  href="/#unidades"
+                  href="/privacidade"
                   className="text-sm text-gray-300 hover:text-primary transition-colors"
                 >
-                  Reservas para Grupos
+                  Política de Privacidade
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/termos"
+                  className="text-sm text-gray-300 hover:text-primary transition-colors"
+                >
+                  Termos de Uso
                 </Link>
               </li>
             </ul>
