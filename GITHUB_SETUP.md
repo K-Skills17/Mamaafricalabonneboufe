@@ -1,11 +1,24 @@
 # Instruções para Conectar ao GitHub
 
-## Status Atual
-✅ Git está inicializado
-✅ Branch: `main`
-✅ Working tree limpo
+## ✅ Status Atual do Projeto
 
-## Passo 1: Criar o Repositório no GitHub
+- ✅ Git está inicializado
+- ✅ Branch: `main`
+- ✅ Todos os arquivos foram adicionados e commitados
+- ✅ Commit criado com todas as novas funcionalidades
+- ⚠️ Repositório remoto precisa ser criado no GitHub
+
+## 📦 O que foi commitado
+
+O commit inclui:
+- Página de cardápio completo (`/cardapio`)
+- Páginas legais (Política de Privacidade e Termos de Uso)
+- Componente CookieConsent (LGPD compliance)
+- WhatsApp FAB melhorado com seleção de unidade
+- Navegação e Footer atualizados
+- README atualizado
+
+## 🚀 Passo 1: Criar o Repositório no GitHub
 
 1. Acesse https://github.com/new
 2. **Nome do repositório**: `Mamaafricalabonneboufe` (ou outro nome de sua preferência)
@@ -17,14 +30,17 @@
    - ❌ Não marque "Choose a license"
 6. Clique em **"Create repository"**
 
-## Passo 2: Conectar o Repositório Local
+## 🔗 Passo 2: Conectar o Repositório Local
 
 Depois de criar o repositório no GitHub, execute os comandos abaixo no terminal:
 
-### Opção A: Usando HTTPS (Recomendado para iniciantes)
+### Opção A: Usando HTTPS (Recomendado)
 
 ```bash
-# Adicionar o repositório remoto (SUBSTITUA SEU_USUARIO pelo seu username do GitHub)
+# Remover o remote atual (se existir)
+git remote remove origin
+
+# Adicionar o novo repositório remoto (SUBSTITUA SEU_USUARIO pelo seu username do GitHub)
 git remote add origin https://github.com/SEU_USUARIO/Mamaafricalabonneboufe.git
 
 # Verificar se foi adicionado corretamente
@@ -34,9 +50,14 @@ git remote -v
 git push -u origin main
 ```
 
+**Nota**: Se solicitado, use um **Personal Access Token** ao invés de senha. Crie um em: https://github.com/settings/tokens
+
 ### Opção B: Usando SSH (Se você já configurou SSH keys)
 
 ```bash
+# Remover o remote atual (se existir)
+git remote remove origin
+
 # Adicionar o repositório remoto (SUBSTITUA SEU_USUARIO pelo seu username do GitHub)
 git remote add origin git@github.com:SEU_USUARIO/Mamaafricalabonneboufe.git
 
@@ -47,7 +68,7 @@ git remote -v
 git push -u origin main
 ```
 
-## Passo 3: Verificar a Conexão
+## ✅ Passo 3: Verificar a Conexão
 
 ```bash
 # Verificar remotes configurados
@@ -60,19 +81,7 @@ origin  https://github.com/SEU_USUARIO/Mamaafricalabonneboufe.git (fetch)
 origin  https://github.com/SEU_USUARIO/Mamaafricalabonneboufe.git (push)
 ```
 
-## Passo 4: Testar o Push
-
-```bash
-# Fazer uma pequena alteração e testar
-echo "# Teste" >> README.md
-git add README.md
-git commit -m "Teste de conexão com GitHub"
-git push
-```
-
-Se funcionar, você verá o código no GitHub!
-
-## Troubleshooting
+## 🔍 Troubleshooting
 
 ### Erro: "remote origin already exists"
 Se você já tentou conectar antes, remova e adicione novamente:
@@ -81,20 +90,48 @@ git remote remove origin
 git remote add origin https://github.com/SEU_USUARIO/Mamaafricalabonneboufe.git
 ```
 
-### Erro de autenticação
-- Para HTTPS: Use um Personal Access Token ao invés de senha
-- Para SSH: Configure suas SSH keys no GitHub
+### Erro de autenticação HTTPS
+- GitHub não aceita mais senhas via HTTPS
+- Crie um **Personal Access Token** em: https://github.com/settings/tokens
+- Use o token como senha quando solicitado
+- Permissões necessárias: `repo` (acesso completo aos repositórios)
 
-### Verificar se está tudo certo
+### Erro de autenticação SSH
+- Configure suas SSH keys no GitHub
+- Guia: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+### Verificar status atual
 ```bash
 git status
 git remote -v
 git branch
+git log --oneline -5
 ```
 
-## Próximos Passos
+## 📋 Próximos Passos
 
 Depois de conectar ao GitHub:
-1. ✅ Conecte ao Vercel para deploy automático
-2. ✅ Configure GitHub Actions (opcional)
-3. ✅ Adicione colaboradores (se necessário)
+
+1. ✅ Verifique se todos os arquivos aparecem no repositório
+2. ✅ Conecte ao Vercel para deploy automático
+3. ✅ Configure GitHub Actions (opcional)
+4. ✅ Adicione colaboradores (se necessário)
+5. ✅ Configure branch protection (opcional)
+
+## 📝 Comandos Úteis
+
+```bash
+# Ver histórico de commits
+git log --oneline
+
+# Ver status atual
+git status
+
+# Ver remotes configurados
+git remote -v
+
+# Fazer push de futuras alterações
+git add .
+git commit -m "Descrição das alterações"
+git push
+```
