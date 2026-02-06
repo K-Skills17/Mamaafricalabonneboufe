@@ -82,7 +82,7 @@ export default function SobrePage() {
         </div>
       </div>
 
-      {/* Section 2: A Nossa Jornada */}
+      {/* Section 2: A Nossa Jornada - A história do Chef Sam */}
       <motion.section
         variants={containerVariants}
         initial="hidden"
@@ -100,13 +100,15 @@ export default function SobrePage() {
               Do <span className="text-primary">Camarões</span> para <span className="text-primary">São Paulo</span>
             </motion.h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          {/* Bloco 1: Origem e decisão + Sahara */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <motion.div variants={itemVariants}>
               <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg mb-6">
-                A jornada do Chef Sam começou há mais de duas décadas nas cozinhas vibrantes de Camarões. Com o sonho de levar os sabores ancestrais da sua terra para o mundo, ele desembarcou em São Paulo trazendo na bagagem mais do que receitas: trouxe segredos, temperos raros e a paixão por alimentar o espírito.
+                Nascido em Yaoundé, nos Camarões, e formado em Engenharia Eletrônica, Sam decidiu ainda jovem desbravar o mundo — uma escolha ousada e desafiadora para um africano, marcada por coragem, resiliência e inúmeros obstáculos ao longo do caminho.
               </p>
               <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg">
-                Hoje, com <span className="text-primary font-semibold">25 anos de maestria</span>, o Chef Sam é o guardião de uma cultura que se manifesta em cada aroma que sai de suas panelas.
+                Sua jornada começou em um ônibus rumo à Europa, atravessando países como Nigéria, Mali, Burkina Faso, Níger e Chade. No trajeto, enfrentou um dos momentos mais difíceis de sua vida ao cruzar o implacável Deserto do Saara. Ali, testemunhou a perda de muitas vidas por falta de comida e água, sobrevivendo durante quatro dias intensos de sofrimento extremo, até avistar, à distância, a primeira cidade da Argélia — uma luz solitária que surgia na escuridão da caminhada noturna.
               </p>
             </motion.div>
             <motion.div
@@ -114,8 +116,65 @@ export default function SobrePage() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
             >
               <Image
-                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/IMG-20260130-WA0057.jpg"
-                alt="Cozinha e tradição do Chef Sam"
+                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/chef 1.jpg"
+                alt="Chef Sam - A jornada começou em Yaoundé"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={90}
+              />
+            </motion.div>
+          </div>
+
+          {/* Bloco 2: Tamaracet e Maghnia */}
+          <motion.div variants={itemVariants} className="mb-20 max-w-3xl">
+            <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg">
+              Em Tamaracet, encontrou um cenário pitoresco que lhe permitiu recuperar as forças. Dois dias depois, seguiu rumo à fronteira com o Marrocos, em Maghnia, uma região marcada pela dura realidade imposta pelos Tuaregues (habitantes do deserto) à população local, revelando uma crueldade que deixou marcas profundas em sua trajetória.
+            </p>
+          </motion.div>
+
+          {/* Bloco 3: Senegal, navio, Argentina + foto */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <motion.div
+              variants={itemVariants}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-2 md:order-1"
+            >
+              <Image
+                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/chef 2.jpg"
+                alt="Chef Sam - Nova vida na América do Sul"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={90}
+              />
+            </motion.div>
+            <motion.div variants={itemVariants} className="order-1 md:order-2">
+              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg mb-6">
+                Diante de tantas adversidades, Sam decidiu retornar ao Senegal. Em Dakar, embarcou clandestinamente em um navio de carga, perdendo a noção do tempo durante a travessia. Ao final da viagem, desembarcou em Rosário, na Argentina, seguindo posteriormente para Buenos Aires.
+              </p>
+              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg">
+                Sem nunca ter saído de seu continente de origem, encantou-se com esse novo mundo e sua rica diversidade cultural. Foi ali que, após um pedido de extradição, decidiu iniciar sua primeira experiência gastronômica, dedicando-se a divulgar e apresentar a culinária e a cultura africanas.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Bloco 4: Brasil, São Paulo, fundação + foto */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div variants={itemVariants}>
+              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg mb-6">
+                Ainda na Argentina, tomou conhecimento do Carnaval Brasileiro e, movido pela curiosidade, seguiu para o Rio de Janeiro. Após o carnaval, conheceu sua esposa no interior de São Paulo, na cidade de São José do Rio Preto. Juntos, mudaram-se para a capital paulista, onde fundaram o <span className="text-primary font-semibold">MAMA AFRICA LA BONNE BOUFFE</span>, no bairro do Tatuapé.
+              </p>
+              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg">
+                O restaurante nasceu como um sonho que, dia após dia, vem crescendo, ganhando forma e espaço, conquistando o paladar e o coração dos paulistanos. Com carisma, dedicação e autenticidade, Sam ampliou seus horizontes e celebrou mais uma conquista: o <span className="text-primary font-semibold">MAMA AFRICA LA BONNE BOUFFE GRILL</span>, localizado na Vila Madalena.
+              </p>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/chef 6.jpg"
+                alt="Chef Sam - Mama Africa La Bonne Bouffe"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -174,57 +233,13 @@ export default function SobrePage() {
         </div>
       </motion.section>
 
-      {/* Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-
-      {/* Section 4: O Ritual do Compartilhar */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-background-light relative"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
-            <span className="text-terracotta font-bold tracking-widest uppercase text-xs block mb-2">O Ritual</span>
-            <motion.h2
-              variants={itemVariants}
-              className="font-display text-3xl md:text-4xl mb-6 text-charcoal"
-            >
-              Uma <span className="text-primary">Mesa</span>, Muitas <span className="text-primary">Mãos</span>
-            </motion.h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              variants={itemVariants}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-2 md:order-1"
-            >
-              <Image
-                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/IMG-20260130-WA0050.jpg"
-                alt="Platter compartilhado - Ritual do compartilhar"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={90}
-              />
-            </motion.div>
-            <motion.div variants={itemVariants} className="order-1 md:order-2">
-              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg mb-6">
-                Acreditamos que a comida sabe melhor quando compartilhada. Nossa experiência é centrada nos <span className="text-primary font-semibold">grandes platters (travessas)</span>, desenhados para que a família e os amigos se sirvam juntos.
-              </p>
-              <p className="text-gray-700 leading-relaxed font-light text-base md:text-lg">
-                É um convite para baixar a guarda, esquecer os talheres e se conectar através do paladar. É a <span className="text-primary font-semibold">celebração da fartura e da união</span>.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
+      {/* White padding spacer */}
+      <div className="py-16 md:py-24 bg-background-light" aria-hidden="true" />
 
       {/* Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* Section 5: Onde Estamos */}
+      {/* Section 4: Onde Estamos */}
       <motion.section
         variants={containerVariants}
         initial="hidden"
@@ -255,7 +270,7 @@ export default function SobrePage() {
       {/* Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* Section 6: Closing Signature */}
+      {/* Section 5: Closing Signature */}
       <motion.section
         variants={containerVariants}
         initial="hidden"

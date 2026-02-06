@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { unidades } from "@/data/unidades";
 
 export function Footer() {
@@ -24,13 +25,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Section A: The Brand Soul */}
           <div>
-            <div className="flex flex-col mb-6">
-              <span className="font-display font-bold text-2xl text-primary mb-1">
-                MAMA AFRICA
-              </span>
-              <span className="text-[10px] uppercase tracking-widest font-bold opacity-70 text-gray-300">
-                La Bonne Bouffe
-              </span>
+            <div className="mb-6">
+              <Image
+                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/Logo webp.webp"
+                alt="Mama Africa La Bonne Bouffe"
+                width={140}
+                height={42}
+                className="h-10 w-auto object-contain opacity-90"
+              />
             </div>
             <p className="text-sm text-gray-300 mb-6 leading-relaxed font-light">
               25 anos trazendo o tempero autêntico de Camarões para o coração de São Paulo. Uma experiência feita para compartilhar.

@@ -42,3 +42,8 @@ h1, h2, h3, h4, h5, h6 {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Gallery: pause animation when user scrolls the page */
+.gallery-paused [data-gallery-track] {
+  animation-play-state: paused !important;
+}

@@ -28,6 +28,22 @@ const config: Config = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-100%)" },
         },
+        "gallery-scroll-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "gallery-scroll-right": {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "gallery-scroll-up": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
+        "gallery-scroll-down": {
+          "0%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(0)" },
+        },
         bounce: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
@@ -36,6 +52,10 @@ const config: Config = {
       animation: {
         marquee: "marquee 45s linear infinite",
         bounce: "bounce 2s ease-in-out infinite",
+        "gallery-scroll-left": "gallery-scroll-left 90s linear infinite",
+        "gallery-scroll-right": "gallery-scroll-right 90s linear infinite",
+        "gallery-scroll-up": "gallery-scroll-up 90s linear infinite",
+        "gallery-scroll-down": "gallery-scroll-down 90s linear infinite",
       },
     },
   },

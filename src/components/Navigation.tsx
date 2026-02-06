@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -18,13 +19,15 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background-light/95 backdrop-blur-md border-b border-gray-100">
       <div className="px-6 h-16 flex items-center justify-between max-w-7xl mx-auto">
-        <Link href="/" className="flex flex-col hover:opacity-80 transition-opacity">
-          <span className="font-display font-bold text-xl tracking-tight text-terracotta">
-            MAMA AFRICA
-          </span>
-          <span className="text-[8px] uppercase tracking-[0.2em] font-medium -mt-1 opacity-70">
-            La Bonne Bouffe
-          </span>
+        <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Image
+            src="/assets/photos/MamaAfricaLaBonneBoufe Photos/Logo webp.webp"
+            alt="Mama Africa La Bonne Bouffe"
+            width={160}
+            height={48}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
         
         {/* Desktop Menu */}
