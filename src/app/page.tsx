@@ -68,7 +68,7 @@ export default function HomePage() {
           <p className="text-white text-sm md:text-base mb-8 max-w-sm font-light leading-relaxed drop-shadow-lg">
             Comida de verdade, tempero de vó e mesa cheia.
             <br />
-            O Chef Sam traz <span className="font-medium text-primary">25 anos de tradição</span> para quem ama comer bem e compartilhar momentos.
+            O Chef Sam traz <span className="font-medium text-primary">10 anos de tradição</span> para quem ama comer bem e compartilhar momentos.
           </p>
         </div>
       </section>
@@ -143,7 +143,7 @@ export default function HomePage() {
                 Coração do Chef
               </h3>
               <p className="text-gray-700 leading-relaxed font-light text-sm">
-                <span className="text-terracotta font-semibold">25 anos</span> cozinhando com paixão e dedicação.
+                <span className="text-terracotta font-semibold">10 anos</span> cozinhando com paixão e dedicação.
               </p>
             </motion.div>
           </div>
@@ -170,7 +170,7 @@ export default function HomePage() {
             >
               <Image
                 src="/assets/photos/MamaAfricaLaBonneBoufe Photos/SPTV chef sam.jpg"
-                alt="Chef Sam - 25 Anos de Tradição"
+                alt="Chef Sam - 10 Anos de Tradição"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -187,7 +187,7 @@ export default function HomePage() {
               </p>
               <div className="flex items-center gap-4 py-4 border-y border-gray-200">
                 <div className="text-center flex-1">
-                  <span className="block text-2xl font-display text-primary">25+</span>
+                  <span className="block text-2xl font-display text-primary">10+</span>
                   <span className="text-[10px] uppercase text-gray-600 font-bold">Anos de História</span>
                 </div>
                 <div className="w-px h-8 bg-gray-300"></div>

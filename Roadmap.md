@@ -5,7 +5,7 @@
 - [x] **Project Structure & Docs** - Estrutura de diretórios criada, documentação de branding e PRD definidos
 - [x] **Data files (unidades.ts)** - Arquivo de dados das unidades criado com informações de Tatuapé e Pinheiros
 - [ ] **Current: Visual-heavy Homepage using local assets** - Homepage altamente visual com seções Hero, Platter e Unidades, usando fotos locais
-- [ ] **Next: About Us (The 25-year legacy of Chef Sam)** - Página Sobre Nós contando a história dos 25 anos de experiência do Chef Sam
+- [ ] **Next: About Us (The legacy of Chef Sam (desde 2016))** - Página Sobre Nós contando a história dos 10 anos de experiência do Chef Sam
 
 ---
 
@@ -22,7 +22,7 @@
 - [x] Widget de WhatsApp flutuante com seletor de unidade.
 
 ## Fase 3: Páginas de Conteúdo
-- [ ] **Sobre Nós:** História dos 25 anos do Chef Sam (Foco em imersão e ancestralidade).
+- [ ] **Sobre Nós:** História do Chef Sam (desde 2016) (Foco em imersão e ancestralidade).
 - [ ] **Galeria:** Grid visual focado em fotos de alta qualidade.
 - [ ] **Menu Visual:** Grid de fotos das iguarias camaronesas (Ndolé, Poulet DG).
 

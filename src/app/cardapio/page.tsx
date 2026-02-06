@@ -2,28 +2,52 @@
 
 import { menuCategories } from "@/data/menu";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function CardapioPage() {
-  const containerVariants = {
+  const categoryVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const itemsContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.04,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 12,
+        stiffness: 120,
+        damping: 14,
       },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
@@ -51,30 +75,43 @@ export default function CardapioPage() {
       </section>
 
       {/* Menu Content */}
-      <motion.section
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="py-16 px-6"
-      >
+      <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           {menuCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.id}
-              variants={itemVariants}
+              variants={categoryVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
               className="mb-24 last:mb-0"
             >
-              {/* Category Section */}
+              {/* Category Section - image on side, content beside it */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-                {/* Category Header with Photo */}
-                <div className="relative">
-                  {/* Photo Placeholder */}
-                  <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-gradient-to-br from-gray-100 via-gray-50 to-gray-200 border-b border-gray-200">
-                    <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex flex-col md:flex-row">
+                  {/* Image - side panel, full picture (object-contain) */}
+                  {category.image ? (
+                    <motion.div
+                      variants={imageVariants}
+                      className="md:w-56 lg:w-64 flex-shrink-0 bg-gray-50 flex items-start justify-center p-4 md:border-r md:border-b-0 border-b border-gray-200"
+                    >
+                      <div className="relative w-full aspect-square max-w-[240px] md:max-w-none md:w-full md:aspect-square">
+                        <Image
+                          src={encodeURI(category.image)}
+                          alt={category.title}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 240px, 256px"
+                          quality={90}
+                        />
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <div className="md:w-56 lg:w-64 flex-shrink-0 bg-gradient-to-br from-gray-100 to-gray-50 flex items-start justify-center p-6 md:border-r md:border-b-0 border-b border-gray-200">
                       <div className="text-center">
-                        <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
+                        <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
                           <svg
-                            className="w-10 h-10 md:w-12 md:h-12 text-primary/40"
+                            className="w-8 h-8 text-primary/40"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -87,33 +124,33 @@ export default function CardapioPage() {
                             />
                           </svg>
                         </div>
-                        <p className="text-sm md:text-base text-gray-400 font-medium">
-                          Foto em breve
-                        </p>
+                        <p className="text-sm text-gray-400 font-medium">Foto em breve</p>
                       </div>
                     </div>
-                  </div>
+                  )}
 
-                  {/* Category Title Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/90 via-charcoal/70 to-transparent p-6 md:p-8">
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-white">
+                  {/* Title + Items List */}
+                  <div className="flex-1 min-w-0">
+                    <motion.h2
+                      variants={itemVariants}
+                      className="font-display text-2xl md:text-3xl text-charcoal px-6 pt-6 pb-2 border-b border-gray-100"
+                    >
                       {category.title}
-                    </h2>
-                  </div>
-                </div>
-
-                {/* Items List */}
-                <div className="p-6 md:p-8">
-                  <div className="space-y-4 md:space-y-5">
+                    </motion.h2>
+                    <motion.div
+                      variants={itemsContainerVariants}
+                      className="p-6 md:p-8 space-y-4 md:space-y-5"
+                    >
                     {category.items.map((item, itemIndex) => (
                       <motion.div
                         key={`${category.id}-${itemIndex}`}
                         variants={itemVariants}
-                        className="border-b border-gray-100 last:border-0 pb-4 md:pb-5 last:pb-0"
+                        whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                        className="border-b border-gray-100 last:border-0 pb-4 md:pb-5 last:pb-0 cursor-default group"
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                           <div className="flex-1">
-                            <h3 className="font-display text-lg md:text-xl text-charcoal">
+                            <h3 className="font-display text-lg md:text-xl text-charcoal group-hover:text-primary/90 transition-colors duration-200">
                               {item.name}
                             </h3>
                             {item.description && (
@@ -124,7 +161,7 @@ export default function CardapioPage() {
                           </div>
                           <div className="flex-shrink-0 flex flex-col items-end sm:items-start">
                             <div className="text-right sm:text-left">
-                              <p className="font-semibold text-primary text-lg md:text-xl whitespace-nowrap">
+                              <p className="font-semibold text-primary text-lg md:text-xl whitespace-nowrap group-hover:scale-105 transition-transform duration-200 origin-right">
                                 {item.price}
                               </p>
                               {item.priceForTwo && (
@@ -137,13 +174,14 @@ export default function CardapioPage() {
                         </div>
                       </motion.div>
                     ))}
+                    </motion.div>
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       {/* Footer Info Section */}
       <section className="py-12 px-6 bg-charcoal text-white">

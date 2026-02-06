@@ -1,7 +1,7 @@
 "use client";
 
 export function Marquee() {
-  const text = "100% AFRICANO • 25 ANOS DE TRADIÇÃO • COMPARTILHE O SABOR • FEITO COM ALMA • TEMPERO DE VÓ";
+  const text = "100% AFRICANO • 10 ANOS DE TRADIÇÃO • COMPARTILHE O SABOR • FEITO COM ALMA • TEMPERO DE VÓ";
   
   return (
     <div className="overflow-hidden bg-emerald py-2.5 border-b border-primary/20">

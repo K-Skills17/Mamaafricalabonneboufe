@@ -35,7 +35,7 @@ export function Footer() {
               />
             </div>
             <p className="text-sm text-gray-300 mb-6 leading-relaxed font-light">
-              25 anos trazendo o tempero autêntico de Camarões para o coração de São Paulo. Uma experiência feita para compartilhar.
+              10 anos trazendo o tempero autêntico de Camarões para o coração de São Paulo. Uma experiência feita para compartilhar.
             </p>
             <div className="flex gap-4">
               <a

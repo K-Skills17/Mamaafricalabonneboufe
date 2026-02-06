@@ -7,16 +7,20 @@ export interface MenuItem {
   image?: string; // Para adicionar fotos depois
 }
 
+const PHOTOS_PATH = "/assets/photos/MamaAfricaLaBonneBoufe Photos/Gallery/Pratos";
+
 export interface MenuCategory {
   id: string;
   title: string;
   items: MenuItem[];
+  image?: string;
 }
 
 export const menuCategories: MenuCategory[] = [
   {
     id: "cervejas",
     title: "Cervejas",
+    image: `${PHOTOS_PATH}/Cervejas.jpg`,
     items: [
       { name: "Heineken 350 ml", price: "R$ 15,00" },
       { name: "Colorado", price: "R$ 24,00" },
@@ -34,6 +38,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "bebidas",
     title: "Bebidas",
+    image: `${PHOTOS_PATH}/bebidas.webp`,
     items: [
       { name: "Coca-Cola", price: "R$ 9,00" },
       { name: "Água sem gás", price: "R$ 6,00" },
@@ -47,6 +52,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "drinks",
     title: "Drinks (Chef Sam)",
+    image: `${PHOTOS_PATH}/drinks.webp`,
     items: [
       {
         name: "Chef Sam",
@@ -84,6 +90,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "entradas",
     title: "Entradas (Entrées)",
+    image: `${PHOTOS_PATH}/Entradas.jpg`,
     items: [
       {
         name: "Misto de Frutos do Mar",
@@ -110,6 +117,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "petiscos",
     title: "Petiscos",
+    image: `${PHOTOS_PATH}/petiscos.jpg`,
     items: [
       { name: "Milho & amendoim torrados", price: "R$ 7,00" },
       { name: "Arroz Jellof", price: "R$ 20,99" },
@@ -132,6 +140,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "pratos-principais",
     title: "Pratos Principais",
+    image: `${PHOTOS_PATH}/pratos principais.jpg`,
     items: [
       {
         name: "Attieke",
@@ -241,6 +250,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "sobremesas",
     title: "Sobremesas",
+    image: `${PHOTOS_PATH}/sobremesa.jpg`,
     items: [
       { name: "Karamanana", price: "R$ 27,99" },
       { name: "Bambam", price: "R$ 27,99" },
@@ -251,6 +261,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "vinhos",
     title: "Vinhos",
+    image: `${PHOTOS_PATH}/vinhos.jpg`,
     items: [
       {
         name: "Vinho",

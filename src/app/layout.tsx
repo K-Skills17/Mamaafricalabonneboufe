@@ -21,7 +21,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "Chef Sam - Onde a Ancestralidade se Torna Banquete",
-  description: "25 anos de história. Experiência Imersiva de Gastronomia Africana Autêntica em São Paulo",
+  description: "Desde 2016. Experiência imersiva de gastronomia africana autêntica em São Paulo",
 };
 
 export default function RootLayout({

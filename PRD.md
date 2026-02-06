@@ -1,7 +1,7 @@
 # PRD: Chef Sam - Unified Experience
 
 ## Core Concept
-A single-identity website. The focus is 100% on the Cameroonian experience and Chef Sam's 25-year mastery. 
+A single-identity website. The focus is 100% on the Cameroonian experience and Chef Sam's 10-year mastery (desde 2016). 
 
 ## Navigation & Structure
 - **Home:** One main landing page for the brand.

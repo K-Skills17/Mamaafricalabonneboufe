@@ -165,9 +165,9 @@ export default function GaleriaPage() {
         </div>
       </section>
 
-      {/* Gallery - Pauses on hover | Desktop: 2 rows horizontal | Mobile: 2 columns vertical */}
+      {/* Gallery - Gradient flows seamlessly into footer */}
       <section
-        className="relative py-8 md:py-12 bg-gradient-to-b from-charcoal/90 via-background-light to-background-light overflow-hidden"
+        className="relative py-8 md:py-12 bg-gradient-to-b from-charcoal via-charcoal/80 to-[#e5e0d8] overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)}
@@ -181,7 +181,7 @@ export default function GaleriaPage() {
           <div className="flex flex-row md:flex-col gap-2 md:gap-8 w-full">
             {/* Section A - Pratos: Desktop row 1, scrolls left | Mobile left column, scrolls up */}
             <div className="w-1/2 md:w-full flex flex-col gap-3 md:gap-4">
-              <h2 className="text-lg md:text-xl font-display font-semibold text-charcoal px-4 md:px-8">
+              <h2 className="text-lg md:text-xl font-display font-semibold text-terracotta px-4 md:px-8">
                 {sectionA.title}
               </h2>
               <div className="overflow-hidden h-[55vh] md:h-[400px] min-h-[280px]">
@@ -203,7 +203,7 @@ export default function GaleriaPage() {
 
             {/* Section B - Chef Sam na TV: Desktop row 2, scrolls right | Mobile right column, scrolls down */}
             <div className="w-1/2 md:w-full flex flex-col gap-3 md:gap-4">
-              <h2 className="text-lg md:text-xl font-display font-semibold text-charcoal px-4 md:px-8">
+              <h2 className="text-lg md:text-xl font-display font-semibold text-terracotta px-4 md:px-8">
                 {sectionB.title}
               </h2>
               <div className="overflow-hidden h-[55vh] md:h-[400px] min-h-[280px]">
@@ -228,7 +228,7 @@ export default function GaleriaPage() {
         {/* Hover indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
           <motion.div
-            className="flex items-center gap-2 text-gray-500 text-xs md:text-sm"
+            className="flex items-center gap-2 text-terracotta/90 text-xs md:text-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 0.4 : 0.8 }}
             transition={{ duration: 0.3 }}

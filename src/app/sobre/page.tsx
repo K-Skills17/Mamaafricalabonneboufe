@@ -47,7 +47,7 @@ export default function SobrePage() {
         >
           <Image
             src="/assets/photos/MamaAfricaLaBonneBoufe Photos/Within site.jpg"
-            alt="Chef Sam - 25 Anos de Tradição"
+            alt="Chef Sam - 10 Anos de Tradição"
             fill
             priority
             className="object-cover"
@@ -61,12 +61,12 @@ export default function SobrePage() {
             Nossa História
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-4 drop-shadow-2xl">
-            25 Anos de <span className="text-primary italic font-medium">Fogo</span>,
+            10 Anos de <span className="text-primary italic font-medium">Fogo</span>,
             <br />
             <span className="text-primary italic font-medium">Tradição</span> e <span className="text-primary italic font-medium">Alma</span>
           </h1>
           <p className="text-white text-sm md:text-base mb-8 max-w-2xl font-light leading-relaxed drop-shadow-lg">
-            A história do Chef Sam e a chegada da verdadeira gastronomia camaronesa ao coração de São Paulo.
+            A história do Chef Sam e a chegada da verdadeira gastronomia camaronesa ao coração de São Paulo desde 2016.
           </p>
         </div>
       </section>
