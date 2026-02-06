@@ -88,7 +88,7 @@ export function Footer() {
                   >
                     {unidade.endereco}
                   </button>
-                  <p className="text-sm text-gray-300">
+                  <p className="text-sm text-gray-300 whitespace-pre-line">
                     {unidade.horarios}
                   </p>
                   <button
