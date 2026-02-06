@@ -169,7 +169,7 @@ export default function HomePage() {
               className="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-2xl"
             >
               <Image
-                src={encodeURI("/assets/photos/MamaAfricaLaBonneBoufe Photos/Gallery/TV & FIGURAS INFLUENTES/SPTV.jpg")}
+                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/chef.jpg"
                 alt="Chef Sam - 10 Anos de Tradição"
                 fill
                 className="object-cover"
