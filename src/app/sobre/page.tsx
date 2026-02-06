@@ -286,7 +286,7 @@ export default function SobrePage() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-2 md:order-1"
             >
               <Image
-                src="/assets/photos/MamaAfricaLaBonneBoufe Photos/SPTV chef sam.jpg"
+                src={encodeURI("/assets/photos/MamaAfricaLaBonneBoufe Photos/Gallery/TV & FIGURAS INFLUENTES/SPTV.jpg")}
                 alt="Chef Sam - Assinatura"
                 fill
                 className="object-cover"
