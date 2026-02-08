@@ -8,11 +8,17 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #121212;
   color: #FDFCFB;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Tipografia Serif para headlines */

@@ -1,9 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,6 +29,8 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Chef Sam - Onde a Ancestralidade se Torna Banquete",
   description: "Desde 2016. Experiência imersiva de gastronomia africana autêntica em São Paulo",
+  themeColor: "#121212",
+  formatDetection: { telephone: true, email: true, address: false },
 };
 
 export default function RootLayout({
